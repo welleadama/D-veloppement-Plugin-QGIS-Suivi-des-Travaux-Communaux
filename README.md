@@ -1,4 +1,4 @@
-# Document technique – Plugin QGIS « Suivi des Travaux Communaux »
+# Plugin QGIS « Suivi des Travaux de voiries»
 
 ## 1. Contexte et objectifs
 
@@ -10,7 +10,7 @@ Les collectivités territoriales ont besoin d’outils SIG pour **le suivi des t
 
 * Permettre la **saisie et gestion des travaux** directement depuis QGIS.
 * Respecter les standards **CNIG** pour la structuration des données SIG.
-* Intégrer les recommandations **CNIG** pour l’CNIG et les informations PMR.
+* Intégrer les recommandations **CNIG** pour les informations PMR.
 * Fournir un **export conforme aux standards transport** pour les applications métier et les rapports.
 
 ---
