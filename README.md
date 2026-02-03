@@ -4,13 +4,13 @@
 
 ### 1.1 Contexte
 
-Les collectivités territoriales ont besoin d’outils SIG pour **le suivi des travaux de voirie et de réseaux** afin de respecter les normes SCNIG (Système Commun National d’Information Géographique) et ACCESSIBILIT2 (normes accessibilité PMR et sécurité). Le plugin vise à **centraliser, suivre et restituer les données** dans un format compatible avec les standards SIG de transport.
+Les collectivités territoriales ont besoin d’outils SIG pour **le suivi des travaux de voirie et de réseaux** afin de respecter les normes CNIG . Le plugin vise à **centraliser, suivre et restituer les données** dans un format compatible avec les standards SIG de transport.
 
 ### 1.2 Objectifs
 
 * Permettre la **saisie et gestion des travaux** directement depuis QGIS.
-* Respecter les standards **SCNIG** pour la structuration des données SIG.
-* Intégrer les recommandations **ACCESSIBILITE** pour l’accessibilité et les informations PMR.
+* Respecter les standards **CNIG** pour la structuration des données SIG.
+* Intégrer les recommandations **CNIG** pour l’CNIG et les informations PMR.
 * Fournir un **export conforme aux standards transport** pour les applications métier et les rapports.
 
 ---
@@ -30,7 +30,7 @@ Les collectivités territoriales ont besoin d’outils SIG pour **le suivi des t
 * Mise à jour de l’état des travaux
 * Suivi des chantiers PMR ou accessibles
 * Détection des travaux en retard
-* Export vers formats SCNIG/Transport (GPKG, GeoJSON, Excel)
+* Export vers formats CNIG/Transport (GPKG, GeoJSON, Excel)
 * Production de fiches PDF pour réunions et reporting
 
 ---
@@ -44,7 +44,7 @@ Les collectivités territoriales ont besoin d’outils SIG pour **le suivi des t
             ↓
 [ PostgreSQL / PostGIS ]
             ↓
-[ Export SCNIG / Transport ]
+[ Export CNIG / Transport ]
 ```
 
 ### 3.2 Choix techniques
@@ -53,11 +53,11 @@ Les collectivités territoriales ont besoin d’outils SIG pour **le suivi des t
 * **Base de données** : PostgreSQL + PostGIS
 * **Langage plugin** : Python (PyQGIS / PyQt)
 * **Projection** : RGF93 / Lambert-93 (EPSG:2154)
-* **Normes** : SCNIG, ACCESSIBILITE, standards transport
+* **Normes** : CNIG, CNIG, standards transport
 
 ---
 
-## 4. Modèle de données (conforme SCNIG et standards transport)
+## 4. Modèle de données (conforme CNIG et standards transport)
 
 ### 4.1 Schéma
 
@@ -67,19 +67,19 @@ Schéma : `voirie`
 
 | Champ         | Type      | Description                       | Norme         |
 | ------------- | --------- | --------------------------------- | ------------- |
-| id            | UUID      | Identifiant unique                | SCNIG         |
-| geom          | Geometry  | Point, ligne, polygone            | SCNIG         |
-| type_travaux  | VARCHAR   | Voirie, Réseaux, Signalisation    | SCNIG         |
-| etat          | VARCHAR   | À venir, En cours, Achevé, Annulé | SCNIG         |
-| date_debut    | DATE      | Date de début                     | SCNIG         |
-| date_fin      | DATE      | Date prévisionnelle               | SCNIG         |
-| entreprise    | VARCHAR   | Nom entreprise                    | SCNIG         |
-| responsable   | VARCHAR   | Responsable chantier              | SCNIG         |
-| urgence       | VARCHAR   | Faible, Moyenne, Élevée           | SCNIG         |
-| accessibilite | VARCHAR   | Conforme PMR, Dérogation          | ACCESSIBILITE |
-| commentaire   | TEXT      | Observations                      | SCNIG         |
-| date_creation | TIMESTAMP | Création                          | SCNIG         |
-| date_maj      | TIMESTAMP | Dernière modification             | SCNIG         |
+| id            | UUID      | Identifiant unique                | CNIG         |
+| geom          | Geometry  | Point, ligne, polygone            | CNIG         |
+| type_travaux  | VARCHAR   | Voirie, Réseaux, Signalisation    | CNIG         |
+| etat          | VARCHAR   | À venir, En cours, Achevé, Annulé | CNIG         |
+| date_debut    | DATE      | Date de début                     | CNIG         |
+| date_fin      | DATE      | Date prévisionnelle               | CNIG         |
+| entreprise    | VARCHAR   | Nom entreprise                    | CNIG         |
+| responsable   | VARCHAR   | Responsable chantier              | CNIG         |
+| urgence       | VARCHAR   | Faible, Moyenne, Élevée           | CNIG         |
+| CNIG | VARCHAR   | Conforme PMR, Dérogation          | CNIG |
+| commentaire   | TEXT      | Observations                      | CNIG         |
+| date_creation | TIMESTAMP | Création                          | CNIG         |
+| date_maj      | TIMESTAMP | Dernière modification             | CNIG         |
 
 ---
 
@@ -93,9 +93,9 @@ Schéma : `voirie`
 
 ### 5.2 Création et modification des travaux
 
-* Formulaire guidé QGIS (type, état, accessibilité, urgence)
+* Formulaire guidé QGIS (type, état, CNIG, urgence)
 * Dessin sur carte : point, ligne, polygone
-* Validation des champs selon SCNIG et ACCESSIBILITE
+* Validation des champs selon CNIG et CNIG
 
 ### 5.3 Gestion des états et alertes
 
@@ -111,7 +111,7 @@ Schéma : `voirie`
 
 ### 5.5 Export et impression
 
-* Export GeoPackage / GeoJSON compatible SCNIG
+* Export GeoPackage / GeoJSON compatible CNIG
 * Export Excel standard transport
 * Impression PDF des fiches travaux
 
@@ -127,7 +127,7 @@ Schéma : `voirie`
 
 ## 7. Étapes de développement
 
-1. Création du schéma PostGIS et des tables selon SCNIG / ACCESSIBILITE
+1. Création du schéma PostGIS et des tables selon CNIG / CNIG
 2. Développement du plugin PyQGIS (formulaire, boutons, gestion états)
 3. Logique métier : alertes, filtres, styles automatiques
 4. Mise en page des fiches PDF et export standards
