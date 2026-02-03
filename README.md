@@ -30,6 +30,7 @@ Les collectivités territoriales ont besoin d’outils SIG pour **le suivi des t
 * Mise à jour de l’état des travaux
 * Suivi des chantiers PMR ou accessibles
 * Détection des travaux en retard
+* production de state et graphique d'analyse
 * Export vers formats CNIG/Transport (GPKG, GeoJSON, Excel)
 * Production de fiches PDF pour réunions et reporting
 
