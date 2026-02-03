@@ -155,6 +155,5 @@ Schéma : `voirie`
 
 ---
 ## Notre source de départ pour ce projet : https://docs.qgis.org/3.40/en/docs/pyqgis_developer_cookbook/plugins/index.html 
-*Abdour azize chef de projet Géomatique*
-*Adama welle chef de prjet Géomatique*
+*Abdour azize et Adama welle chef de prjet Géomatique*
 *Février 2026*
